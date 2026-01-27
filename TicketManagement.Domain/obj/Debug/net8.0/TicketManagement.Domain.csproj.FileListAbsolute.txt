@@ -1,0 +1,13 @@
+/Users/anthonyvillegas/RiderProjects/TicketManagementSystem/TicketManagement.Domain/bin/Debug/net8.0/TicketManagement.Domain.deps.json
+/Users/anthonyvillegas/RiderProjects/TicketManagementSystem/TicketManagement.Domain/bin/Debug/net8.0/TicketManagement.Domain.dll
+/Users/anthonyvillegas/RiderProjects/TicketManagementSystem/TicketManagement.Domain/bin/Debug/net8.0/TicketManagement.Domain.pdb
+/Users/anthonyvillegas/RiderProjects/TicketManagementSystem/TicketManagement.Domain/obj/Debug/net8.0/TicketManagement.Domain.csproj.AssemblyReference.cache
+/Users/anthonyvillegas/RiderProjects/TicketManagementSystem/TicketManagement.Domain/obj/Debug/net8.0/TicketManagement.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/anthonyvillegas/RiderProjects/TicketManagementSystem/TicketManagement.Domain/obj/Debug/net8.0/TicketManagement.Domain.AssemblyInfoInputs.cache
+/Users/anthonyvillegas/RiderProjects/TicketManagementSystem/TicketManagement.Domain/obj/Debug/net8.0/TicketManagement.Domain.AssemblyInfo.cs
+/Users/anthonyvillegas/RiderProjects/TicketManagementSystem/TicketManagement.Domain/obj/Debug/net8.0/TicketManagement.Domain.csproj.CoreCompileInputs.cache
+/Users/anthonyvillegas/RiderProjects/TicketManagementSystem/TicketManagement.Domain/obj/Debug/net8.0/TicketManagement.Domain.sourcelink.json
+/Users/anthonyvillegas/RiderProjects/TicketManagementSystem/TicketManagement.Domain/obj/Debug/net8.0/TicketManagement.Domain.dll
+/Users/anthonyvillegas/RiderProjects/TicketManagementSystem/TicketManagement.Domain/obj/Debug/net8.0/refint/TicketManagement.Domain.dll
+/Users/anthonyvillegas/RiderProjects/TicketManagementSystem/TicketManagement.Domain/obj/Debug/net8.0/TicketManagement.Domain.pdb
+/Users/anthonyvillegas/RiderProjects/TicketManagementSystem/TicketManagement.Domain/obj/Debug/net8.0/ref/TicketManagement.Domain.dll

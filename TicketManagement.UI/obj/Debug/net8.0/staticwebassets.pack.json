@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/anthonyvillegas/RiderProjects/TicketManagementSystem/TicketManagement.UI/obj/Debug/net8.0/scopedcss/projectbundle/TicketManagement.UI.bundle.scp.css",
+      "PackagePath": "staticwebassets/TicketManagement.UI.bundle.scp.css"
+    },
+    {
+      "Id": "/Users/anthonyvillegas/RiderProjects/TicketManagementSystem/TicketManagement.UI/wwwroot/app.css",
+      "PackagePath": "staticwebassets/app.css"
+    },
+    {
+      "Id": "/Users/anthonyvillegas/RiderProjects/TicketManagementSystem/TicketManagement.UI/wwwroot/bootstrap/bootstrap.min.css",
+      "PackagePath": "staticwebassets/bootstrap/bootstrap.min.css"
+    },
+    {
+      "Id": "/Users/anthonyvillegas/RiderProjects/TicketManagementSystem/TicketManagement.UI/wwwroot/bootstrap/bootstrap.min.css.map",
+      "PackagePath": "staticwebassets/bootstrap/bootstrap.min.css.map"
+    },
+    {
+      "Id": "/Users/anthonyvillegas/RiderProjects/TicketManagementSystem/TicketManagement.UI/wwwroot/favicon.png",
+      "PackagePath": "staticwebassets/favicon.png"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.TicketManagement.UI.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.build.TicketManagement.UI.props",
+      "PackagePath": "build\\TicketManagement.UI.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.TicketManagement.UI.props",
+      "PackagePath": "buildMultiTargeting\\TicketManagement.UI.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.TicketManagement.UI.props",
+      "PackagePath": "buildTransitive\\TicketManagement.UI.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
