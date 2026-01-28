@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600&display=swap");
+
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
@@ -48,4 +50,158 @@ h1:focus {
 
 .darker-border-checkbox.form-check-input {
     border-color: #929292;
+}
+
+.login-root {
+    font-family: "Space Grotesk", "Segoe UI", sans-serif;
+    background: #05070a;
+}
+
+.login-panel {
+    position: relative;
+    overflow: hidden;
+    min-height: 45vh;
+    background:
+        radial-gradient(1200px 520px at 20% 5%, rgba(95, 120, 255, 0.35), transparent 60%),
+        radial-gradient(720px 460px at 80% 30%, rgba(45, 212, 191, 0.2), transparent 65%),
+        linear-gradient(155deg, #0a0f16 0%, #0b1118 45%, #0f1a24 100%);
+}
+
+.login-panel::before,
+.login-panel::after {
+    content: "";
+    position: absolute;
+    width: 520px;
+    height: 520px;
+    border-radius: 50%;
+    opacity: 0.35;
+    pointer-events: none;
+}
+
+.login-panel::before {
+    right: -180px;
+    top: -220px;
+    background: radial-gradient(circle, rgba(96, 128, 255, 0.5), transparent 65%);
+    animation: drift 20s ease-in-out infinite;
+}
+
+.login-panel::after {
+    left: -220px;
+    bottom: -260px;
+    background: radial-gradient(circle, rgba(45, 212, 191, 0.35), transparent 68%);
+    animation: drift 24s ease-in-out infinite reverse;
+}
+
+.login-panel-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 520px;
+}
+
+.login-mark {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    background: linear-gradient(140deg, #5f78ff 0%, #2dd4bf 100%);
+    box-shadow: 0 14px 30px rgba(38, 74, 180, 0.45);
+}
+
+.login-mark-sm {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: linear-gradient(140deg, #5f78ff 0%, #2dd4bf 100%);
+}
+
+.login-kicker {
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #f5f7fb;
+}
+
+.login-micro {
+    font-family: "IBM Plex Mono", "Courier New", monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: rgba(204, 214, 230, 0.7);
+}
+
+.login-pill {
+    border: 1px solid rgba(120, 138, 165, 0.55);
+    background: rgba(8, 12, 18, 0.4);
+    color: rgba(226, 233, 244, 0.85);
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.login-form-panel {
+    position: relative;
+    background: linear-gradient(180deg, rgba(9, 12, 16, 0.96), rgba(7, 10, 14, 0.98));
+}
+
+.login-form-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 46px 46px;
+    opacity: 0.22;
+    pointer-events: none;
+}
+
+.login-card {
+    position: relative;
+    width: min(440px, 100%);
+    background: rgba(10, 14, 20, 0.82);
+    border: 1px solid rgba(104, 122, 150, 0.45);
+    border-radius: 18px;
+    box-shadow: 0 25px 70px rgba(2, 6, 12, 0.65);
+    backdrop-filter: blur(18px);
+    z-index: 1;
+}
+
+.login-input {
+    background: rgba(6, 9, 13, 0.92);
+    border-color: rgba(110, 130, 160, 0.6);
+    color: #f4f7fb;
+}
+
+.login-input:focus {
+    background: rgba(6, 9, 13, 0.92);
+    border-color: rgba(115, 141, 255, 0.85);
+    box-shadow: 0 0 0 0.15rem rgba(90, 120, 230, 0.35);
+    color: #f4f7fb;
+}
+
+.login-input::placeholder {
+    color: rgba(200, 210, 225, 0.55);
+}
+
+@keyframes drift {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    50% {
+        transform: translate3d(18px, -26px, 0);
+    }
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@media (max-width: 991.98px) {
+    .login-panel {
+        min-height: 42vh;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .login-panel::before,
+    .login-panel::after {
+        animation: none;
+    }
 }

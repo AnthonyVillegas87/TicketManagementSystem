@@ -1,0 +1,117 @@
+@page "/login"
+@using System.ComponentModel.DataAnnotations
+@using Domain.Entities
+@using Domain.Interfaces
+@using Microsoft.AspNetCore.Identity
+
+@inject IAccountService accountService
+@inject SignInManager<User> signInManager
+@inject NavigationManager navigationManager
+
+<div class="container-fluid login-root p-0">
+    <div class="row g-0 min-vh-100">
+        <section class="col-lg-7 d-flex align-items-center login-panel text-light">
+            <div class="login-panel-inner px-4 px-lg-5 py-5">
+                <div class="d-flex align-items-center gap-3 mb-5">
+                    <span class="login-mark" aria-hidden="true"></span>
+                    <div>
+                        <div class="login-kicker fw-semibold">Ticket Management</div>
+                        <div class="login-micro">Operations Console</div>
+                    </div>
+                </div>
+
+                <h1 class="display-5 fw-semibold mb-3">Control the queue with precision.</h1>
+                <p class="lead text-white-50 mb-4">
+                    A secure, unified console for incident triage, SLA tracking, and escalation.
+                </p>
+
+                <div class="d-flex flex-wrap gap-2">
+                    <span class="badge rounded-pill login-pill">Audit Ready</span>
+                    <span class="badge rounded-pill login-pill">Real-time Insights</span>
+                    <span class="badge rounded-pill login-pill">Role-based Access</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="col-lg-5 d-flex align-items-center justify-content-center login-form-panel">
+            <div class="card login-card text-light">
+                <div class="card-body p-4 p-lg-5">
+                    <div class="d-flex align-items-center gap-2 text-uppercase small fw-semibold text-white-50 mb-4 d-lg-none">
+                        <span class="login-mark-sm" aria-hidden="true"></span>
+                        Ticket Management
+                    </div>
+
+                    <h1 class="h3 fw-semibold mb-2">Sign in</h1>
+                    <p class="text-white-50 mb-4">Enter your credentials to access the operations desk.</p>
+
+                    <EditForm Model="Input" method="post" OnInvalidSubmit="OnLogin" FormName="Login">
+                        <DataAnnotationsValidator />
+
+                        <div class="form-floating mb-3">
+                            <InputText id="loginEmail" @bind-Value="Input.Email" class="form-control login-input" placeholder="name@company.com" autocomplete="username" aria-required="true" />
+                            <label for="loginEmail" class="text-white-50">Email</label>
+                            <ValidationMessage For="() => Input.Email" class="text-danger small"/>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <InputText id="loginPassword" @bind-Value="Input.Password" class="form-control login-input" type="password" placeholder="Enter your password" autocomplete="current-password" aria-required="true" />
+                            <label for="loginPassword" class="text-white-50">Password</label>
+                            <ValidationMessage For="() => Input.Password" class="text-danger small"/>
+                        </div>
+
+                        <div class="form-check mb-4">
+                            <InputCheckbox id="rememberMe" @bind-Value="Input.Remember" class="form-check-input" />
+                            <label class="form-check-label text-white-50" for="rememberMe">Keep me signed in</label>
+                        </div>
+
+                        <button type="submit" class="btn btn-info w-100 text-uppercase fw-semibold">Login</button>
+                    </EditForm>
+
+                    <div class="d-flex flex-column gap-2 mt-4 small text-white-50">
+                        <span>Need access? Contact your administrator.</span>
+                        <a class="link-light text-decoration-none" href="/forgot-password">Forgot password</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+@code {
+    [SupplyParameterFromForm] private InputModel Input { get; set; } = new();
+    
+    
+    protected override async Task OnInitializedAsync()
+    {
+        await accountService.RegisterUserAsync(new Domain.Request.RegisterUserRequest
+        {
+            Email = "test@gmail.com",
+            Role = "Admin"
+        });
+    }
+
+    private async Task OnLogin()
+    {
+        var verify = await accountService.VerifyUserAsync(Input.Email, Input.Password);
+        if (!verify.IsSuccess)
+        {
+            return;
+        }
+
+        await signInManager.PasswordSignInAsync(verify.Value, Input.Password, Input.Remember, false);
+        navigationManager.NavigateTo("/");
+    }
+
+    private sealed class InputModel
+    {
+        [Required] [EmailAddress] public string Email { get; set; } = "";
+
+        [Required]
+        [DataType(DataType.Password)]
+        public string Password { get; set; } = "";
+    
+        public bool Remember { get; set; }
+    }
+   
+
+}
