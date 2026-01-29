@@ -22,10 +22,6 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9BcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/anthonyvillegas/RiderProjects/TicketManagementSystem/TicketManagement.UI/Components/Pages/Account/Login.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9BY2NvdW50L0xvZ2luLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
 [/Users/anthonyvillegas/RiderProjects/TicketManagementSystem/TicketManagement.UI/Components/Pages/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Db3VudGVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
@@ -57,3 +53,7 @@ build_metadata.AdditionalFiles.CssScope = b-vp9edew3ob
 [/Users/anthonyvillegas/RiderProjects/TicketManagementSystem/TicketManagement.UI/Components/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9MYXlvdXQvTmF2TWVudS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-bpg9u8pd9g
+
+[/Users/anthonyvillegas/RiderProjects/TicketManagementSystem/TicketManagement.UI/Components/Pages/Account/Login.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9BY2NvdW50L0xvZ2luLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-7v5e9ivjud

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "BRCNBbxMswN4zkYkWF1z+y6hGdW6mEv1vugCojvrgys=",
+  "Hash": "B4LExqOco+z6r9wOkHBNAZq6eXbBOFvYs8kE/QTOdiI=",
   "Source": "TicketManagement.UI",
   "BasePath": "_content/TicketManagement.UI",
   "Mode": "Default",
@@ -16,6 +16,44 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "/Users/anthonyvillegas/.nuget/packages/mudblazor/6.16.0/staticwebassets/MudBlazor.min.css",
+      "SourceId": "MudBlazor",
+      "SourceType": "Package",
+      "ContentRoot": "/Users/anthonyvillegas/.nuget/packages/mudblazor/6.16.0/staticwebassets/",
+      "BasePath": "_content/MudBlazor",
+      "RelativePath": "MudBlazor.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "/Users/anthonyvillegas/.nuget/packages/mudblazor/6.16.0/staticwebassets/MudBlazor.min.css"
+    },
+    {
+      "Identity": "/Users/anthonyvillegas/.nuget/packages/mudblazor/6.16.0/staticwebassets/MudBlazor.min.js",
+      "SourceId": "MudBlazor",
+      "SourceType": "Package",
+      "ContentRoot": "/Users/anthonyvillegas/.nuget/packages/mudblazor/6.16.0/staticwebassets/",
+      "BasePath": "_content/MudBlazor",
+      "RelativePath": "MudBlazor.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "/Users/anthonyvillegas/.nuget/packages/mudblazor/6.16.0/staticwebassets/MudBlazor.min.js"
+    },
     {
       "Identity": "/Users/anthonyvillegas/RiderProjects/TicketManagementSystem/TicketManagement.UI/obj/Debug/net8.0/scopedcss/bundle/TicketManagement.UI.styles.css",
       "SourceId": "TicketManagement.UI",

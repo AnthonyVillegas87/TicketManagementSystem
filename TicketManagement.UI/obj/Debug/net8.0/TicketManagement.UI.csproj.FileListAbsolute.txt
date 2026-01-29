@@ -148,3 +148,13 @@
 /Users/anthonyvillegas/RiderProjects/TicketManagementSystem/TicketManagement.UI/obj/Debug/net8.0/TicketManagement.UI.pdb
 /Users/anthonyvillegas/RiderProjects/TicketManagementSystem/TicketManagement.UI/obj/Debug/net8.0/TicketManagement.UI.genruntimeconfig.cache
 /Users/anthonyvillegas/RiderProjects/TicketManagementSystem/TicketManagement.UI/obj/Debug/net8.0/ref/TicketManagement.UI.dll
+/Users/anthonyvillegas/RiderProjects/TicketManagementSystem/TicketManagement.UI/bin/Debug/net8.0/Microsoft.AspNetCore.Authorization.dll
+/Users/anthonyvillegas/RiderProjects/TicketManagementSystem/TicketManagement.UI/bin/Debug/net8.0/Microsoft.AspNetCore.Components.dll
+/Users/anthonyvillegas/RiderProjects/TicketManagementSystem/TicketManagement.UI/bin/Debug/net8.0/Microsoft.AspNetCore.Components.Forms.dll
+/Users/anthonyvillegas/RiderProjects/TicketManagementSystem/TicketManagement.UI/bin/Debug/net8.0/Microsoft.AspNetCore.Components.Web.dll
+/Users/anthonyvillegas/RiderProjects/TicketManagementSystem/TicketManagement.UI/bin/Debug/net8.0/Microsoft.AspNetCore.Metadata.dll
+/Users/anthonyvillegas/RiderProjects/TicketManagementSystem/TicketManagement.UI/bin/Debug/net8.0/Microsoft.Extensions.Localization.dll
+/Users/anthonyvillegas/RiderProjects/TicketManagementSystem/TicketManagement.UI/bin/Debug/net8.0/Microsoft.Extensions.Localization.Abstractions.dll
+/Users/anthonyvillegas/RiderProjects/TicketManagementSystem/TicketManagement.UI/bin/Debug/net8.0/Microsoft.JSInterop.dll
+/Users/anthonyvillegas/RiderProjects/TicketManagementSystem/TicketManagement.UI/bin/Debug/net8.0/MudBlazor.dll
+/Users/anthonyvillegas/RiderProjects/TicketManagementSystem/TicketManagement.UI/obj/Debug/net8.0/scopedcss/Components/Pages/Account/Login.razor.rz.scp.css
