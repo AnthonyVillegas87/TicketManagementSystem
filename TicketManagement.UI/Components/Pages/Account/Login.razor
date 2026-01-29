@@ -1,8 +1,11 @@
 @page "/login"
+
+@layout MainLayout
 @using System.ComponentModel.DataAnnotations
 @using Domain.Entities
 @using Domain.Interfaces
 @using Microsoft.AspNetCore.Identity
+@using TicketManagement.UI.Components.Layout
 
 @inject IAccountService accountService
 @inject SignInManager<User> signInManager
