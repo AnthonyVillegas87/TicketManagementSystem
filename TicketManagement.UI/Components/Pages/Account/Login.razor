@@ -1,17 +1,15 @@
 @page "/login"
 @layout EmptyLayout
 @using System.ComponentModel.DataAnnotations
-@using Domain.Entities
 @using Domain.Interfaces
-@using Microsoft.AspNetCore.Identity
 @using TicketManagement.UI.Components.Layout
-@using TicketManagement.UI.Components.Shared
 
 
 
 @inject IAccountService accountService
-@inject SignInManager<User> signInManager
 @inject NavigationManager navigationManager
+
+@rendermode InteractiveServer
 
 <div class="container-fluid login-root p-0">
     <div class="row g-0 min-vh-100">
@@ -106,8 +104,7 @@
             return;
         }
 
-        await signInManager.PasswordSignInAsync(verify.Value, Input.Password, Input.Remember, false);
-        navigationManager.NavigateTo("/");
+        navigationManager.NavigateTo($"/processor/{verify.Value}/{Input.Password}/{Input.Remember}");
     }
 
     private sealed class InputModel

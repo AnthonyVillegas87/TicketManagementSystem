@@ -1,5 +1,25 @@
-<h3>LoginProcessor</h3>
+@page "/processor/{username}/{password}/{rememberMe:bool}"
 
-@code {
-    
+@using Domain.Entities
+@using Microsoft.AspNetCore.Identity
+@using TicketManagement.UI.Components.Layout
+@layout EmptyLayout
+
+@inject SignInManager<User> signInManager
+@inject NavigationManager navigationManager
+
+Sign In....
+
+@code
+{
+    [Parameter] public string username { get; set; }
+    [Parameter] public string password { get; set; }
+    [Parameter] public bool rememberMe{ get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await signInManager.PasswordSignInAsync(username, password, rememberMe, false);
+        navigationManager.NavigateTo("/");
+    }
+
 }

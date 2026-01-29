@@ -26,6 +26,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9MYXlvdXQvRW1wdHlMYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/anthonyvillegas/RiderProjects/TicketManagementSystem/TicketManagement.UI/Components/Pages/Account/LoginProcessor.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9BY2NvdW50L0xvZ2luUHJvY2Vzc29yLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/anthonyvillegas/RiderProjects/TicketManagementSystem/TicketManagement.UI/Components/Pages/Account/Logout.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9BY2NvdW50L0xvZ291dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -48,6 +52,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/Users/anthonyvillegas/RiderProjects/TicketManagementSystem/TicketManagement.UI/Components/Routes.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9Sb3V0ZXMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/anthonyvillegas/RiderProjects/TicketManagementSystem/TicketManagement.UI/Components/Shared/Alert.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9TaGFyZWQvQWxlcnQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/anthonyvillegas/RiderProjects/TicketManagementSystem/TicketManagement.UI/Components/_Imports.razor]
