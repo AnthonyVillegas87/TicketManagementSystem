@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using TicketManagement.UI.Components;
 using MudBlazor.Services;
+using TicketManagement.UI.Components.Security;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,6 +32,7 @@ builder.Services.AddIdentityCore<User>()
     .AddSignInManager();
 
 builder.Services.AddScoped<IAccountService, AccountService>();
+builder.Services.AddScoped(typeof(EncryptionHelper<>));
 
 builder.Services.AddMudServices();
 
