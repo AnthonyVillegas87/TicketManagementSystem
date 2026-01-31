@@ -1,36 +1,46 @@
+using System.Data.Common;
 using Domain.Request;
+using Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repository;
 
 public class GenericRepository<T> : IGenericRepository<T> where T : class
 {
+    private readonly AppDbContext _context;
+
+    public GenericRepository(AppDbContext context)
+    {
+       _context = context;     
+    }
     public T GetByIdAsync(int id)
     {
-        throw new NotImplementedException();
+       return _context.Set<T>().Find(id);
     }
 
     public List<T> GetAllAsync()
     {
-        throw new NotImplementedException();
+        return _context.Set<T>().ToList();
     }
 
     public void AddAsync(T entity)
     {
-        throw new NotImplementedException();
+        _context.Set<T>().Add(entity);
     }
 
     public void UpdateAsync(T entity)
     {
-        throw new NotImplementedException();
+        _context.Set<T>().Attach(entity);
+        _context.Entry(entity).State = EntityState.Modified;
     }
 
     public void DeleteAsync(T entity)
     {
-        throw new NotImplementedException();
+       _context.Set<T>().Remove(entity);
     }
 
     public void SaveChangesAsync()
     {
-        throw new NotImplementedException();
+        _context.SaveChanges();
     }
 }
