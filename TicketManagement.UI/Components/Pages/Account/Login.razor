@@ -2,6 +2,7 @@
 @layout EmptyLayout
 @using System.ComponentModel.DataAnnotations
 @using Domain.Interfaces
+@using TicketManagement.UI.Components.DTO
 @using TicketManagement.UI.Components.Layout
 @using TicketManagement.UI.Components.Security
 
@@ -9,7 +10,7 @@
 
 @inject IAccountService accountService
 @inject NavigationManager navigationManager
-@inject EncryptionHelper<InputModel> encryptionHelper
+@inject EncryptionHelper<LoginDto> encryptionHelper
 
 @rendermode InteractiveServer
 
@@ -106,7 +107,16 @@
             return;
         }
 
-        navigationManager.NavigateTo($"/processor/{verify.Value}/{Input.Password}/{Input.Remember}");
+        var loginData = new LoginDto
+        {
+            Username = verify.Value,
+            Password = Input.Password,
+            RememberMe = Input.Remember
+        };
+        
+        var encryptedLoginPayload = encryptionHelper.Encode(loginData);
+        
+        navigationManager.NavigateTo($"/processor/{encryptedLoginPayload}");
     }
 
     private sealed class InputModel
