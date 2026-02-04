@@ -158,3 +158,5 @@
 /Users/anthonyvillegas/RiderProjects/TicketManagementSystem/TicketManagement.UI/bin/Debug/net8.0/Microsoft.JSInterop.dll
 /Users/anthonyvillegas/RiderProjects/TicketManagementSystem/TicketManagement.UI/bin/Debug/net8.0/MudBlazor.dll
 /Users/anthonyvillegas/RiderProjects/TicketManagementSystem/TicketManagement.UI/obj/Debug/net8.0/scopedcss/Components/Pages/Account/Login.razor.rz.scp.css
+/Users/anthonyvillegas/RiderProjects/TicketManagementSystem/TicketManagement.UI/bin/Debug/net8.0/jose-jwt.dll
+/Users/anthonyvillegas/RiderProjects/TicketManagementSystem/TicketManagement.UI/bin/Debug/net8.0/Newtonsoft.Json.dll

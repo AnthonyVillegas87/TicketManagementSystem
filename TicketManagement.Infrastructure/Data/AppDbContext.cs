@@ -1,4 +1,5 @@
 using Domain.Entities;
+using Infrastructure.Extensions;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -21,6 +22,8 @@ public class AppDbContext : IdentityDbContext<User>
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
+        
+        modelBuilder.SeedData();
 
         modelBuilder.Entity<Ticket>()
             .HasOne(x => x.User)
