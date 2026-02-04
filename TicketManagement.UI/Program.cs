@@ -33,6 +33,7 @@ builder.Services.AddIdentityCore<User>()
 
 builder.Services.AddScoped<IAccountService, AccountService>();
 builder.Services.AddScoped(typeof(EncryptionHelper<>));
+builder.Services.AddScoped<ICriteriaService, CriteriaService>();
 
 builder.Services.AddMudServices();
 
