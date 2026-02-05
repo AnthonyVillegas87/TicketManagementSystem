@@ -1,6 +1,8 @@
 using Domain.Entities;
 using Domain.Interfaces;
+using Domain.Request;
 using Infrastructure.Data;
+using Infrastructure.Repository;
 using Infrastructure.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -34,6 +36,9 @@ builder.Services.AddIdentityCore<User>()
 builder.Services.AddScoped<IAccountService, AccountService>();
 builder.Services.AddScoped(typeof(EncryptionHelper<>));
 builder.Services.AddScoped<ICriteriaService, CriteriaService>();
+builder.Services.AddScoped<ITicketService, TicketService>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<ITicketRepository, TicketRepository>();
 
 builder.Services.AddMudServices();
 

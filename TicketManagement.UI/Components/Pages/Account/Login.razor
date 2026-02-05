@@ -1,6 +1,7 @@
 @page "/login"
 @layout EmptyLayout
 @using System.ComponentModel.DataAnnotations
+@using Domain.DTO.Request
 @using Domain.Interfaces
 @using TicketManagement.UI.Components.DTO
 @using TicketManagement.UI.Components.Layout
@@ -90,7 +91,7 @@
     
     protected override async Task OnInitializedAsync()
     {
-        await accountService.RegisterUserAsync(new Domain.Request.RegisterUserRequest
+        await accountService.RegisterUserAsync(new RegisterUserRequest
         {
             Email = "test@gmail.com",
             Role = "Admin"

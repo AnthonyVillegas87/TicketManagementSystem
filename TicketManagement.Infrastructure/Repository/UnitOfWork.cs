@@ -7,11 +7,13 @@ namespace Infrastructure.Repository;
 public class UnitOfWork : IUnitOfWork
 {
     private readonly AppDbContext _context;
+    public ITicketRepository TicketRepository { get; }
     private Hashtable _repositories;
     
-    public UnitOfWork(AppDbContext context)
+    public UnitOfWork(AppDbContext context, ITicketRepository ticketRepository)
     {
         _context = context;
+        TicketRepository = ticketRepository;
     }
     
     public void Dispose()

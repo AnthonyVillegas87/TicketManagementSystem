@@ -1,4 +1,4 @@
-namespace Domain.Request;
+namespace Domain.DTO.Request;
 
 public class RegisterUserRequest
 {
