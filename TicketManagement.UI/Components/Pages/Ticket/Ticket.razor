@@ -1,0 +1,208 @@
+@page "/tickets"
+@using Microsoft.AspNetCore.Components.Sections
+@using Domain.DTO.Request
+@using Domain.Interfaces
+@using MudBlazor
+@inject ITicketService TicketService
+
+<SectionContent SectionName="page-title">Tickets</SectionContent>
+
+<div class="ticket-container">
+    <div class="ticket-header">
+        <div class="ticket-header-content">
+            <div>
+                <h1 class="ticket-title">
+                    <i class="fa-solid fa-inbox"></i>
+                    Tickets
+                </h1>
+                <p class="ticket-subtitle">Manage and track all support tickets</p>
+            </div>
+            <MudButton Variant="Variant.Filled"
+                       StartIcon="@Icons.Material.Filled.Add"
+                       Color="Color.Primary"
+                       Class="ticket-create-btn">
+                Create Ticket
+            </MudButton>
+        </div>
+    </div>
+
+    <div class="ticket-content">
+        <MudDataGrid T="GetTicketResponseDto"
+                     Items="@tickets"
+                     Filterable="true"
+                     FilterMode="DataGridFilterMode.ColumnFilterRow"
+                     SortMode="SortMode.Multiple"
+                     Dense="false"
+                     Hover="true"
+                     Class="ticket-grid"
+                     Loading="@isLoading"
+                     LoadingProgressColor="Color.Primary">
+
+            <Columns>
+                <PropertyColumn Property="x => x.TicketIdView"
+                               Title="ID"
+                               Sortable="true"
+                               Filterable="false">
+                    <CellTemplate>
+                        <div class="ticket-id-badge">
+                            @context.Item.TicketIdView
+                        </div>
+                    </CellTemplate>
+                </PropertyColumn>
+
+                <PropertyColumn Property="x => x.Summary"
+                               Title="Summary"
+                               Sortable="true">
+                    <CellTemplate>
+                        <div class="ticket-summary">
+                            <strong>@context.Item.Summary</strong>
+                            @if (!string.IsNullOrEmpty(context.Item.Description))
+                            {
+                                <div class="ticket-description-preview">
+                                    @(context.Item.Description.Length > 60
+                                        ? context.Item.Description.Substring(0, 60) + "..."
+                                        : context.Item.Description)
+                                </div>
+                            }
+                        </div>
+                    </CellTemplate>
+                </PropertyColumn>
+
+                <PropertyColumn Property="x => x.Priority"
+                               Title="Priority"
+                               Sortable="true">
+                    <CellTemplate>
+                        <MudChip Size="Size.Small"
+                                 Color="@GetPriorityColor(context.Item.Priority)"
+                                 Class="ticket-chip">
+                            @context.Item.Priority
+                        </MudChip>
+                    </CellTemplate>
+                </PropertyColumn>
+
+                <PropertyColumn Property="x => x.Status"
+                               Title="Status"
+                               Sortable="true">
+                    <CellTemplate>
+                        <MudChip Size="Size.Small"
+                                 Color="@GetStatusColor(context.Item.Status)"
+                                 Class="ticket-chip">
+                            @context.Item.Status
+                        </MudChip>
+                    </CellTemplate>
+                </PropertyColumn>
+
+                <PropertyColumn Property="x => x.Category"
+                               Title="Category"
+                               Sortable="true"/>
+
+                <PropertyColumn Property="x => x.Product"
+                               Title="Product"
+                               Sortable="true"/>
+
+                <PropertyColumn Property="x => x.CreatedBy"
+                               Title="Created By"
+                               Sortable="true"/>
+
+                <PropertyColumn Property="x => x.CreatedDate"
+                               Title="Created"
+                               Sortable="true">
+                    <CellTemplate>
+                        <div class="ticket-date">
+                            @context.Item.CreatedDate.ToString("MMM dd, yyyy")
+                            <div class="ticket-date-time">
+                                @context.Item.CreatedDate.ToString("hh:mm tt")
+                            </div>
+                        </div>
+                    </CellTemplate>
+                </PropertyColumn>
+
+                <PropertyColumn Property="x => x.DueDate"
+                               Title="Due Date"
+                               Sortable="true">
+                    <CellTemplate>
+                        @if (context.Item.DueDate.HasValue)
+                        {
+                            <div class="ticket-date @(context.Item.DueDate.Value < DateTime.Now ? "ticket-overdue" : "")">
+                                @context.Item.DueDate.Value.ToString("MMM dd, yyyy")
+                            </div>
+                        }
+                        else
+                        {
+                            <span class="ticket-no-date">—</span>
+                        }
+                    </CellTemplate>
+                </PropertyColumn>
+
+                <TemplateColumn Filterable="false"
+                               Sortable="false"
+                               Title="Actions">
+                    <CellTemplate>
+                        <MudIconButton Icon="@Icons.Material.Filled.Visibility"
+                                      Size="Size.Small"
+                                      Color="Color.Primary"/>
+                        <MudIconButton Icon="@Icons.Material.Filled.Edit"
+                                      Size="Size.Small"
+                                      Color="Color.Default"/>
+                    </CellTemplate>
+                </TemplateColumn>
+            </Columns>
+
+            <PagerContent>
+                <MudDataGridPager T="GetTicketResponseDto"
+                                 PageSizeOptions="new int[] { 10, 25, 50, 100 }"/>
+            </PagerContent>
+        </MudDataGrid>
+    </div>
+</div>
+
+@rendermode InteractiveServer
+
+@code {
+    private List<GetTicketResponseDto> tickets = new();
+    private bool isLoading = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadTickets();
+    }
+
+    private async Task LoadTickets()
+    {
+        isLoading = true;
+        try
+        {
+            var request = new GetTicketsRequestDto();
+            tickets = TicketService.GetTickets(request);
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }
+
+    private Color GetPriorityColor(string priority)
+    {
+        return priority?.ToLower() switch
+        {
+            "critical" => Color.Error,
+            "high" => Color.Warning,
+            "medium" => Color.Info,
+            "low" => Color.Default,
+            _ => Color.Default
+        };
+    }
+
+    private Color GetStatusColor(string status)
+    {
+        return status?.ToLower() switch
+        {
+            "open" => Color.Info,
+            "in progress" => Color.Primary,
+            "resolved" => Color.Success,
+            "closed" => Color.Default,
+            "on hold" => Color.Warning,
+            _ => Color.Default
+        };
+    }
+}

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TicketManagement.UI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ffcc747b9d1b698448536f51245e8d58acf3785f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+539d7ff4e02208e7b82e9c220139636ced511bf7")]
 [assembly: System.Reflection.AssemblyProductAttribute("TicketManagement.UI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TicketManagement.UI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
