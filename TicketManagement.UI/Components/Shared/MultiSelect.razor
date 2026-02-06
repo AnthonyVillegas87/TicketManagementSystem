@@ -1,0 +1,39 @@
+@typeparam T
+@using MudBlazor
+
+<MudSelect T="T"
+           Label="@Label"
+           MultiSelection="true"
+           @bind-SelectedValues="SelectedValues"
+           Variant="@Variant"
+           Dense="@Dense"
+           Margin="@Margin"
+           Class="@Class"
+           Clearable="@Clearable"
+           SelectAll="@SelectAll"
+           SelectAllText="@SelectAllText">
+    @if (Items != null)
+    {
+        @foreach (var item in Items)
+        {
+            <MudSelectItem T="T" Value="@item">
+                @ItemTemplate(item)
+            </MudSelectItem>
+        }
+    }
+</MudSelect>
+
+@code {
+    [Parameter] public string Label { get; set; } = string.Empty;
+    [Parameter] public IEnumerable<T> Items { get; set; } = Enumerable.Empty<T>();
+    [Parameter] public IEnumerable<T> SelectedValues { get; set; } = Enumerable.Empty<T>();
+    [Parameter] public EventCallback<IEnumerable<T>> SelectedValuesChanged { get; set; }
+    [Parameter] public RenderFragment<T> ItemTemplate { get; set; } = item => @<text>@item</text>;
+    [Parameter] public Variant Variant { get; set; } = Variant.Outlined;
+    [Parameter] public bool Dense { get; set; } = false;
+    [Parameter] public Margin Margin { get; set; } = Margin.None;
+    [Parameter] public string Class { get; set; } = string.Empty;
+    [Parameter] public bool Clearable { get; set; } = true;
+    [Parameter] public bool SelectAll { get; set; } = true;
+    [Parameter] public string SelectAllText { get; set; } = "Select All";
+}

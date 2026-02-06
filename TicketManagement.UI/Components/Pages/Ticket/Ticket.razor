@@ -29,8 +29,7 @@
     <div class="ticket-content">
         <MudDataGrid T="GetTicketResponseDto"
                      Items="@tickets"
-                     Filterable="true"
-                     FilterMode="DataGridFilterMode.ColumnFilterRow"
+                     Filterable="false"
                      SortMode="SortMode.Multiple"
                      Dense="false"
                      Hover="true"
@@ -42,7 +41,7 @@
                 <PropertyColumn Property="x => x.TicketIdView"
                                Title="ID"
                                Sortable="true"
-                               Filterable="false">
+                               Filterable="true">
                     <CellTemplate>
                         <div class="ticket-id-badge">
                             @context.Item.TicketIdView
@@ -52,7 +51,8 @@
 
                 <PropertyColumn Property="x => x.Summary"
                                Title="Summary"
-                               Sortable="true">
+                               Sortable="true"
+                               Filterable="true">
                     <CellTemplate>
                         <div class="ticket-summary">
                             <strong>@context.Item.Summary</strong>
@@ -70,7 +70,8 @@
 
                 <PropertyColumn Property="x => x.Priority"
                                Title="Priority"
-                               Sortable="true">
+                               Sortable="true"
+                               Filterable="true">
                     <CellTemplate>
                         <MudChip Size="Size.Small"
                                  Color="@GetPriorityColor(context.Item.Priority)"
@@ -82,7 +83,8 @@
 
                 <PropertyColumn Property="x => x.Status"
                                Title="Status"
-                               Sortable="true">
+                               Sortable="true"
+                               Filterable="true">
                     <CellTemplate>
                         <MudChip Size="Size.Small"
                                  Color="@GetStatusColor(context.Item.Status)"
@@ -94,19 +96,23 @@
 
                 <PropertyColumn Property="x => x.Category"
                                Title="Category"
-                               Sortable="true"/>
+                               Sortable="true"
+                               Filterable="true"/>
 
                 <PropertyColumn Property="x => x.Product"
                                Title="Product"
-                               Sortable="true"/>
+                               Sortable="true"
+                               Filterable="true"/>
 
                 <PropertyColumn Property="x => x.CreatedBy"
                                Title="Created By"
-                               Sortable="true"/>
+                               Sortable="true"
+                               Filterable="true"/>
 
                 <PropertyColumn Property="x => x.CreatedDate"
                                Title="Created"
-                               Sortable="true">
+                               Sortable="true"
+                               Filterable="false">
                     <CellTemplate>
                         <div class="ticket-date">
                             @context.Item.CreatedDate.ToString("MMM dd, yyyy")
@@ -119,7 +125,8 @@
 
                 <PropertyColumn Property="x => x.DueDate"
                                Title="Due Date"
-                               Sortable="true">
+                               Sortable="true"
+                               Filterable="false">
                     <CellTemplate>
                         @if (context.Item.DueDate.HasValue)
                         {
