@@ -242,6 +242,10 @@
     background: rgba(104, 122, 150, 0.55);
 }
 
+.mud-grid-item {
+    padding-bottom: 1rem;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .ticket-container {

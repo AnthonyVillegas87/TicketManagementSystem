@@ -643,6 +643,10 @@ main[b-vp9edew3ob] {
     background: rgba(104, 122, 150, 0.55);
 }
 
+.mud-grid-item[b-9tgnj1wtz2] {
+    padding-bottom: 1rem;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .ticket-container[b-9tgnj1wtz2] {

@@ -3,6 +3,7 @@
 @using Domain.DTO.Request
 @using Domain.Interfaces
 @using MudBlazor
+@using TicketManagement.UI.Components.Shared
 @inject ITicketService TicketService
 
 <SectionContent SectionName="page-title">Tickets</SectionContent>
@@ -27,6 +28,54 @@
     </div>
 
     <div class="ticket-content">
+        <div class="ticket-filters">
+            <MudGrid>
+                <MudItem xs="12" sm="6" md="3">
+                    <MultiSelect T="string"
+                                 Label="Status"
+                                 Items="@statusOptions"
+                                 @bind-SelectedValues="@selectedStatuses"
+                                 Dense="true" />
+                </MudItem>
+                <MudItem xs="12" sm="6" md="3">
+                    <MultiSelect T="string"
+                                 Label="Priority"
+                                 Items="@priorityOptions"
+                                 @bind-SelectedValues="@selectedPriorities"
+                                 Dense="true" />
+                </MudItem>
+                <MudItem xs="12" sm="6" md="3">
+                    <MultiSelect T="string"
+                                 Label="Category"
+                                 Items="@categoryOptions"
+                                 @bind-SelectedValues="@selectedCategories"
+                                 Dense="true" />
+                </MudItem>
+                <MudItem xs="12" sm="6" md="3">
+                    <MultiSelect T="string"
+                                 Label="Product"
+                                 Items="@productOptions"
+                                 @bind-SelectedValues="@selectedProducts"
+                                 Dense="true" />
+                </MudItem>
+                <MudItem xs="12" sm="6" md="3">
+                    <MultiSelect T="string"
+                                 Label="Created By"
+                                 Items="@createdByOptions"
+                                 @bind-SelectedValues="@selectedCreatedBy"
+                                 Dense="true" />
+                </MudItem>
+                <MudItem xs="12" Class="d-flex justify-end">
+                    <MudButton Variant="Variant.Outlined"
+                               Color="Color.Default"
+                               StartIcon="@Icons.Material.Filled.FilterAltOff"
+                               OnClick="ResetFilters">
+                        Reset Filters
+                    </MudButton>
+                </MudItem>
+            </MudGrid>
+        </div>
+
         <MudDataGrid T="GetTicketResponseDto"
                      Items="@tickets"
                      Filterable="false"
@@ -167,11 +216,57 @@
 
 @code {
     private List<GetTicketResponseDto> tickets = new();
+    private List<GetTicketResponseDto> allTickets = new();
     private bool isLoading = true;
+
+    // Filter options
+    private List<string> statusOptions = new();
+    private List<string> priorityOptions = new();
+    private List<string> categoryOptions = new();
+    private List<string> productOptions = new();
+    private List<string> createdByOptions = new();
+
+    // Selected filters
+    private IEnumerable<string> _selectedStatuses = new List<string>();
+    private IEnumerable<string> _selectedPriorities = new List<string>();
+    private IEnumerable<string> _selectedCategories = new List<string>();
+    private IEnumerable<string> _selectedProducts = new List<string>();
+    private IEnumerable<string> _selectedCreatedBy = new List<string>();
+
+    private IEnumerable<string> selectedStatuses
+    {
+        get => _selectedStatuses;
+        set { _selectedStatuses = value; ApplyFilters(); }
+    }
+
+    private IEnumerable<string> selectedPriorities
+    {
+        get => _selectedPriorities;
+        set { _selectedPriorities = value; ApplyFilters(); }
+    }
+
+    private IEnumerable<string> selectedCategories
+    {
+        get => _selectedCategories;
+        set { _selectedCategories = value; ApplyFilters(); }
+    }
+
+    private IEnumerable<string> selectedProducts
+    {
+        get => _selectedProducts;
+        set { _selectedProducts = value; ApplyFilters(); }
+    }
+
+    private IEnumerable<string> selectedCreatedBy
+    {
+        get => _selectedCreatedBy;
+        set { _selectedCreatedBy = value; ApplyFilters(); }
+    }
 
     protected override async Task OnInitializedAsync()
     {
         await LoadTickets();
+        InitializeFilterOptions();
     }
 
     private async Task LoadTickets()
@@ -180,12 +275,43 @@
         try
         {
             var request = new GetTicketsRequestDto();
-            tickets = TicketService.GetTickets(request);
+            allTickets = TicketService.GetTickets(request);
+            tickets = allTickets;
         }
         finally
         {
             isLoading = false;
         }
+    }
+
+    private void InitializeFilterOptions()
+    {
+        statusOptions = allTickets.Select(t => t.Status).Distinct().OrderBy(s => s).ToList();
+        priorityOptions = allTickets.Select(t => t.Priority).Distinct().OrderBy(p => p).ToList();
+        categoryOptions = allTickets.Select(t => t.Category).Distinct().OrderBy(c => c).ToList();
+        productOptions = allTickets.Select(t => t.Product).Distinct().OrderBy(p => p).ToList();
+        createdByOptions = allTickets.Select(t => t.CreatedBy).Distinct().OrderBy(c => c).ToList();
+    }
+
+    private void ApplyFilters()
+    {
+        tickets = allTickets.Where(t =>
+            (selectedStatuses?.Any() != true || selectedStatuses.Contains(t.Status)) &&
+            (selectedPriorities?.Any() != true || selectedPriorities.Contains(t.Priority)) &&
+            (selectedCategories?.Any() != true || selectedCategories.Contains(t.Category)) &&
+            (selectedProducts?.Any() != true || selectedProducts.Contains(t.Product)) &&
+            (selectedCreatedBy?.Any() != true || selectedCreatedBy.Contains(t.CreatedBy))
+        ).ToList();
+    }
+
+    private void ResetFilters()
+    {
+        selectedStatuses = new List<string>();
+        selectedPriorities = new List<string>();
+        selectedCategories = new List<string>();
+        selectedProducts = new List<string>();
+        selectedCreatedBy = new List<string>();
+        tickets = allTickets;
     }
 
     private Color GetPriorityColor(string priority)
